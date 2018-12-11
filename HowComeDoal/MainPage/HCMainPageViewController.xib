@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HCMainPageViewController" customModule="HowComeDoal" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69d-UT-xKS">
+                    <rect key="frame" x="50" y="220" width="117.5" height="247"/>
+                    <state key="normal" title="附近好康"/>
+                    <connections>
+                        <action selector="nearBonus:" destination="-1" eventType="touchUpInside" id="PKb-9p-VhZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGw-fA-A5e">
+                    <rect key="frame" x="207.5" y="220" width="117.5" height="247"/>
+                    <state key="normal" title="信用卡好康"/>
+                    <connections>
+                        <action selector="cardBonus:" destination="-1" eventType="touchUpInside" id="O9y-ww-868"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="69d-UT-xKS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="8uA-DI-ZBv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LGw-fA-A5e" secondAttribute="trailing" constant="50" id="GVV-iV-QlE"/>
+                <constraint firstItem="69d-UT-xKS" firstAttribute="width" secondItem="LGw-fA-A5e" secondAttribute="width" id="Hly-7R-Yy1"/>
+                <constraint firstItem="LGw-fA-A5e" firstAttribute="leading" secondItem="69d-UT-xKS" secondAttribute="trailing" constant="40" id="JRa-JS-PTX"/>
+                <constraint firstItem="69d-UT-xKS" firstAttribute="height" secondItem="LGw-fA-A5e" secondAttribute="height" id="UEd-M5-Uia"/>
+                <constraint firstItem="69d-UT-xKS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="dAn-Qa-YfU"/>
+                <constraint firstItem="69d-UT-xKS" firstAttribute="top" secondItem="LGw-fA-A5e" secondAttribute="top" id="kbS-D4-dkx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="69d-UT-xKS" secondAttribute="bottom" constant="200" id="xZM-iR-UNp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>
