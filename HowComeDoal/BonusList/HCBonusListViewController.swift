@@ -36,11 +36,10 @@ class HCBonusListViewController: UIViewController {
             self.m_data = data
             print(data)
             self.decode()
-            
+            DispatchQueue.main.async {
+                self.m_tvBonusList?.reloadData()
+            }
         }
-        
-        
-        
         
         m_aryData.append("First")
         m_aryData.append("Second")
@@ -59,6 +58,7 @@ class HCBonusListViewController: UIViewController {
         do {
             let response = try decoder.decode(ResponseList.self, from: self.m_data!)
             m_bonusList = response
+            
         } catch {
             print("error")
         }
@@ -85,13 +85,16 @@ class HCBonusListViewController: UIViewController {
 
 extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return m_aryData.count
+        guard let count = m_bonusList?.branch.count else {
+            return 0
+        }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = m_tvBonusList?.dequeueReusableCell(withIdentifier: "BonusListCell", for: indexPath) as! HCBonusListTableViewCell
         
-        cell.m_lbTitle?.text = m_aryData[indexPath.item]
+        cell.m_lbTitle?.text = m_bonusList?.branch[indexPath.item].name
         return cell
     }
     
