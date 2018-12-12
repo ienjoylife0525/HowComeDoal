@@ -8,24 +8,76 @@
 
 import UIKit
 
+enum BonusType: Int {
+    case card
+    case location
+}
+
+
+
 class HCBonusListViewController: UIViewController {
 
     //Test
     var m_aryData = [String]()
+    var m_ibonusType: BonusType = .card
+    var m_aryParameter = [(String, String)]()
+    var m_data: Data?
+    var m_bonusList: ResponseList?
+    
+    
     
     @IBOutlet weak var m_tvBonusList: UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //
+        setParameters()
+        HttpClient().requestWithURL(urlString: k_strURL, parameters: m_aryParameter) { (data) in
+            self.m_data = data
+            print(data)
+            self.decode()
+            
+        }
+        
+        
+        
+        
         m_aryData.append("First")
         m_aryData.append("Second")
         m_aryData.append("Third")
+        
         
         let nib = UINib(nibName: "HCBonusListTableViewCell", bundle: nil)
         
         m_tvBonusList?.register(nib, forCellReuseIdentifier: "BonusListCell")
         m_tvBonusList?.dataSource = self
         m_tvBonusList?.dataSource = self
+    }
+    
+    private func decode() {
+        let decoder = JSONDecoder()
+        do {
+            let response = try decoder.decode(ResponseList.self, from: self.m_data!)
+            m_bonusList = response
+        } catch {
+            print("error")
+        }
+    }
+    
+    private func setParameters() {
+        m_aryParameter.append(("appId", k_iAppId))
+        switch m_ibonusType {
+        case .card:
+            m_aryParameter.append(("dataGroupCode", k_iDataGroupCard))
+        case .location:
+            m_aryParameter.append(("dataGroupCode", k_iDataGroupLocation))
+        }
+        m_aryParameter.append(("index", "0"))
+        m_aryParameter.append(("limit", "30"))
+        m_aryParameter.append(("OS", "IOS"))
+        m_aryParameter.append(("lat", "25.074578"))
+        m_aryParameter.append(("lon", "121.574992"))
+
     }
 
 

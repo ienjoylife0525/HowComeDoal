@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+// API
+let k_strURL: String = "http://test1.hokhang.com/hksCloudService/getEventService.php?"
+let k_iAppId: String = "119871"
+let k_iDataGroupLocation: String = "01"
+let k_iDataGroupCard: String = "07"
+let k_strDevice: String = "IOS"
+

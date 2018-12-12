@@ -15,6 +15,7 @@ class HCMainPageViewController: UIViewController {
     @IBAction func cardBonus(_ sender: UIButton) {
         print("card Click")
         let listPage = HCBonusListViewController()
+        listPage.m_ibonusType = .card
         self.navigationController?.pushViewController(listPage, animated: true)
     }
     
