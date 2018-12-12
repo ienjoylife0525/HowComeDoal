@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 enum BonusType: Int {
     case card
@@ -17,34 +18,19 @@ enum BonusType: Int {
 
 class HCBonusListViewController: UIViewController {
 
-    //Test
-    var m_aryData = [String]()
     var m_ibonusType: BonusType = .card
     var m_aryParameter = [(String, String)]()
     var m_data: Data?
     var m_bonusList: ResponseList?
-    
-    
-    
+    var m_location: CLLocationManager!
+    var m_strLongitude: String?
+    var m_strLatitude: String?
+
     @IBOutlet weak var m_tvBonusList: UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //
-        setParameters()
-        HttpClient().requestWithURL(urlString: k_strURL, parameters: m_aryParameter) { (data) in
-            self.m_data = data
-            print(data)
-            self.decode()
-            DispatchQueue.main.async {
-                self.m_tvBonusList?.reloadData()
-            }
-        }
-        
-        m_aryData.append("First")
-        m_aryData.append("Second")
-        m_aryData.append("Third")
-        
+        setLocation()
         
         let nib = UINib(nibName: "HCBonusListTableViewCell", bundle: nil)
         
@@ -64,7 +50,15 @@ class HCBonusListViewController: UIViewController {
         }
     }
     
-    private func setParameters() {
+    private func setLocation() {
+        m_location = CLLocationManager()
+        m_location.delegate = self
+        m_location.requestWhenInUseAuthorization()
+        m_location.activityType = .automotiveNavigation
+        m_location.startUpdatingLocation()
+    }
+    
+    private func callWebService() {
         m_aryParameter.append(("appId", k_iAppId))
         switch m_ibonusType {
         case .card:
@@ -75,9 +69,18 @@ class HCBonusListViewController: UIViewController {
         m_aryParameter.append(("index", "0"))
         m_aryParameter.append(("limit", "30"))
         m_aryParameter.append(("OS", "IOS"))
-        m_aryParameter.append(("lat", "25.074578"))
-        m_aryParameter.append(("lon", "121.574992"))
-
+        m_aryParameter.append(("lat", m_strLatitude!))
+        m_aryParameter.append(("lon", m_strLongitude!))
+        
+        HttpClient().requestWithURL(urlString: k_strURL, parameters: m_aryParameter) { (data) in
+            self.m_data = data
+            print(data)
+            self.decode()
+            DispatchQueue.main.async {
+                self.m_tvBonusList?.reloadData()
+            }
+        }
+        
     }
 
 
@@ -97,6 +100,28 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.m_lbTitle?.text = m_bonusList?.branch[indexPath.item].name
         return cell
     }
+}
+
+extension HCBonusListViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        m_location.stopUpdatingLocation()
+        let current = locations.last
+        guard let lat = current?.coordinate.latitude else {
+            return
+        }
+        m_strLatitude = "\(lat)"
+        guard let lon = current?.coordinate.longitude else {
+            return
+        }
+        m_strLongitude = "\(lon)"
+        
+        callWebService()
+        
+        
+        
+    }
     
-    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
 }
