@@ -98,7 +98,16 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = m_tvBonusList?.dequeueReusableCell(withIdentifier: "BonusListCell", for: indexPath) as! HCBonusListTableViewCell
         
         cell.m_lbTitle?.text = m_bonusList?.branch[indexPath.item].name
+        guard let url = URL(string: (m_bonusList?.branch[indexPath.item].logo)!) else {
+            return cell
+        }
+        let data = try? Data(contentsOf: url)
+        cell.m_ivmgIcon?.image = UIImage(data: data!)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30
     }
 }
 
