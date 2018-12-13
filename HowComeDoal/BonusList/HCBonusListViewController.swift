@@ -36,7 +36,7 @@ class HCBonusListViewController: UIViewController {
         
         m_tvBonusList?.register(nib, forCellReuseIdentifier: "BonusListCell")
         m_tvBonusList?.dataSource = self
-        m_tvBonusList?.dataSource = self
+        m_tvBonusList?.delegate = self
     }
     
     private func decode() {
@@ -107,9 +107,19 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 30
+        return CGFloat(k_iCellHeight)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let eventPage = HCEventListViewController()
+        eventPage.m_Branch = m_bonusList?.branch[indexPath.item]
+        self.navigationController?.pushViewController(eventPage, animated: true)
+    }
+    
+
 }
+
+
 
 extension HCBonusListViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

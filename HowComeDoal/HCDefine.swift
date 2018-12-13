@@ -15,3 +15,5 @@ let k_iDataGroupLocation: String = "01"
 let k_iDataGroupCard: String = "07"
 let k_strDevice: String = "IOS"
 
+// UI
+let k_iCellHeight: Int = 50
