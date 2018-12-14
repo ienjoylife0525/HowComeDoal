@@ -52,6 +52,7 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func toMap(_ sender: UIButton) {
         let mapPage = HCMapViewController()
         mapPage.m_branch = m_branch
+        mapPage.m_imgIcon = m_imgIcon
         self.navigationController?.pushViewController(mapPage, animated: true)
     }
 

@@ -12,10 +12,14 @@ import CoreLocation
 
 class HCMapViewController: UIViewController {
 
+    @IBOutlet weak var m_lbTitle: UILabel?
+    @IBOutlet weak var m_lbAddress: UILabel?
+    @IBOutlet weak var m_ivIcon: UIImageView?
     @IBOutlet weak var m_mapView: MKMapView?
     
     var m_aryBranch = [Branch]()
     var m_branch: Branch?
+    var m_imgIcon: UIImage?
     
     let m_locationManager = CLLocationManager()
     
@@ -27,9 +31,15 @@ class HCMapViewController: UIViewController {
         m_mapView?.delegate = self
         m_mapView?.showsUserLocation = true
         m_mapView?.userTrackingMode = .follow
-        
+        setView()
         setLocation()
         
+    }
+    
+    private func setView() {
+        m_ivIcon?.image = m_imgIcon
+        m_lbTitle?.text = m_branch?.name
+        m_lbAddress?.text = m_branch?.addr
     }
     
     private func setLocation() {
@@ -39,7 +49,6 @@ class HCMapViewController: UIViewController {
                 print(error!)
                 return
             }
-            
             if let placemarks = placemarks {
                 let placemark = placemarks[0]
                 let annotation = MKPointAnnotation()
@@ -55,11 +64,11 @@ class HCMapViewController: UIViewController {
     }
 
 
-
 }
 
 extension HCMapViewController: MKMapViewDelegate {
-    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    }
 }
 
 extension HCMapViewController: CLLocationManagerDelegate {
