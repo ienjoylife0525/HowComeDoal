@@ -46,9 +46,17 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
         m_lbEventTitle?.text = m_event?.title
         m_lbDetail?.text = m_event?.detail
         m_lbNote?.text = m_event?.note
+        m_lbEventDate?.text = dateSet()
         m_svScroll?.showsVerticalScrollIndicator = true
         m_svScroll?.isScrollEnabled = true
         m_svScroll?.delegate = self
+    }
+    
+    private func dateSet() -> String {
+        let startDate = m_event?.startDate.components(separatedBy: " ")
+        let endDate = m_event?.endDate.components(separatedBy: " ")
+        
+        return startDate![0] + " ~ " + endDate![0]
     }
     
 
