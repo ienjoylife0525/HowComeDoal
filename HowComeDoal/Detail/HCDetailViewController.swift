@@ -48,6 +48,12 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func toCupon(_ sender: UIButton) {
         
     }
+    
+    @IBAction func toMap(_ sender: UIButton) {
+        let mapPage = HCMapViewController()
+        mapPage.m_branch = m_branch
+        self.navigationController?.pushViewController(mapPage, animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -191,16 +191,30 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYV-aU-6Fj">
+                            <rect key="frame" x="330" y="10" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="gYV-aU-6Fj" secondAttribute="height" multiplier="1:1" id="BNF-np-HgM"/>
+                            </constraints>
+                            <state key="normal" title="BTN"/>
+                            <connections>
+                                <action selector="toMap:" destination="-1" eventType="touchUpInside" id="rlf-g3-TaA"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="bHG-g4-57U" secondAttribute="bottom" id="5Lb-Ac-Rp7"/>
+                        <constraint firstItem="gYV-aU-6Fj" firstAttribute="centerY" secondItem="TF8-9w-hFM" secondAttribute="centerY" id="8kc-Xh-yTq"/>
+                        <constraint firstAttribute="bottom" secondItem="gYV-aU-6Fj" secondAttribute="bottom" constant="10" id="K5N-IJ-crS"/>
                         <constraint firstItem="I8g-YJ-vk0" firstAttribute="height" secondItem="TF8-9w-hFM" secondAttribute="height" id="RQs-4Y-aae"/>
+                        <constraint firstAttribute="trailing" secondItem="gYV-aU-6Fj" secondAttribute="trailing" constant="15" id="Vdz-Mt-LNO"/>
                         <constraint firstItem="I8g-YJ-vk0" firstAttribute="top" secondItem="TF8-9w-hFM" secondAttribute="top" id="XWE-aX-afJ"/>
                         <constraint firstItem="bHG-g4-57U" firstAttribute="top" secondItem="TF8-9w-hFM" secondAttribute="top" id="ew9-SU-6lE"/>
                         <constraint firstAttribute="bottom" secondItem="I8g-YJ-vk0" secondAttribute="bottom" id="fTb-Xv-NMN"/>
                         <constraint firstItem="bHG-g4-57U" firstAttribute="leading" secondItem="I8g-YJ-vk0" secondAttribute="trailing" constant="10" id="gym-PQ-inK"/>
                         <constraint firstAttribute="height" constant="50" id="jlq-uP-3Kd"/>
+                        <constraint firstItem="gYV-aU-6Fj" firstAttribute="top" secondItem="TF8-9w-hFM" secondAttribute="top" constant="10" id="rp3-y7-bVW"/>
                         <constraint firstItem="I8g-YJ-vk0" firstAttribute="leading" secondItem="TF8-9w-hFM" secondAttribute="leading" id="rtP-UR-GMl"/>
                     </constraints>
                 </view>
