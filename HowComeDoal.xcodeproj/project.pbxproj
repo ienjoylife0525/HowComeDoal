@@ -13,6 +13,8 @@
 		6E1D956C21C1FEA5000BD28F /* HCEventListHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E1D956A21C1FEA5000BD28F /* HCEventListHeaderTableViewCell.xib */; };
 		6E1D957221C2066B000BD28F /* HCEventListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D957021C2066B000BD28F /* HCEventListTableViewCell.swift */; };
 		6E1D957321C2066B000BD28F /* HCEventListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E1D957121C2066B000BD28F /* HCEventListTableViewCell.xib */; };
+		6E1D957721C231BA000BD28F /* HCDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D957521C231BA000BD28F /* HCDetailViewController.swift */; };
+		6E1D957821C231BA000BD28F /* HCDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E1D957621C231BA000BD28F /* HCDetailViewController.xib */; };
 		6E7BDC9121BF959D0003A907 /* HCBonusListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7BDC8F21BF959D0003A907 /* HCBonusListViewController.swift */; };
 		6E7BDC9221BF959D0003A907 /* HCBonusListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7BDC9021BF959D0003A907 /* HCBonusListViewController.xib */; };
 		6E7BDC9621BF9A5A0003A907 /* HCBonusListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7BDC9421BF9A5A0003A907 /* HCBonusListTableViewCell.swift */; };
@@ -36,6 +38,8 @@
 		6E1D956A21C1FEA5000BD28F /* HCEventListHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCEventListHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		6E1D957021C2066B000BD28F /* HCEventListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCEventListTableViewCell.swift; sourceTree = "<group>"; };
 		6E1D957121C2066B000BD28F /* HCEventListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCEventListTableViewCell.xib; sourceTree = "<group>"; };
+		6E1D957521C231BA000BD28F /* HCDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCDetailViewController.swift; sourceTree = "<group>"; };
+		6E1D957621C231BA000BD28F /* HCDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCDetailViewController.xib; sourceTree = "<group>"; };
 		6E7BDC8F21BF959D0003A907 /* HCBonusListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBonusListViewController.swift; sourceTree = "<group>"; };
 		6E7BDC9021BF959D0003A907 /* HCBonusListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCBonusListViewController.xib; sourceTree = "<group>"; };
 		6E7BDC9421BF9A5A0003A907 /* HCBonusListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBonusListTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,6 +106,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		6E1D957421C22ED4000BD28F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				6E1D957521C231BA000BD28F /* HCDetailViewController.swift */,
+				6E1D957621C231BA000BD28F /* HCDetailViewController.xib */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		6E7BDC8E21BF957B0003A907 /* BonusList */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +178,7 @@
 		6EDB81DD21BF73D70057BDDF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6E1D957421C22ED4000BD28F /* Detail */,
 				6E1D956221C1FC6D000BD28F /* EventList */,
 				6E7BDC8E21BF957B0003A907 /* BonusList */,
 				6EDB81DE21BF73E20057BDDF /* MainPage */,
@@ -247,6 +261,7 @@
 				6E7BDC9221BF959D0003A907 /* HCBonusListViewController.xib in Resources */,
 				6E1D956621C1FCC2000BD28F /* HCEventListViewController.xib in Resources */,
 				6EDB81D321BF72490057BDDF /* Assets.xcassets in Resources */,
+				6E1D957821C231BA000BD28F /* HCDetailViewController.xib in Resources */,
 				6EDB81D121BF72430057BDDF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E1D957721C231BA000BD28F /* HCDetailViewController.swift in Sources */,
 				6EDB81CE21BF72430057BDDF /* ViewController.swift in Sources */,
 				6E7BDC9D21BFC9CA0003A907 /* HCAPIModel.swift in Sources */,
 				6E7BDC9121BF959D0003A907 /* HCBonusListViewController.swift in Sources */,

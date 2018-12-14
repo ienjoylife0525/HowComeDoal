@@ -31,7 +31,6 @@ class HttpClient: NSObject {
             if error != nil {
                 print(error as Any)
             } else {
-                print(data)
                 guard let data = data else { return }
                 print(data)
                 completion(data)

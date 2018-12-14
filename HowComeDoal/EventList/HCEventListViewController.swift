@@ -47,6 +47,18 @@ extension HCEventListViewController: UITableViewDelegate, UITableViewDataSource 
         return CGFloat(k_iCellHeight)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailPage = HCDetailViewController()
+        detailPage.m_branch = m_Branch
+        detailPage.m_event = m_Branch?.event[indexPath.item]
+        detailPage.m_iIntdex = indexPath.item
+        
+        self.navigationController?.pushViewController(detailPage, animated: true)
+    }
+    
+    
+    
+    // Header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return CGFloat(k_iCellHeight)
     }
