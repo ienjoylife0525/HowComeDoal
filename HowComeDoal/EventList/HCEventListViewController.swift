@@ -11,6 +11,7 @@ import UIKit
 class HCEventListViewController: UIViewController {
     
     var m_Branch: Branch?
+    var m_imgIcon: UIImage?
     
     @IBOutlet var m_tvEventList: UITableView?
 
@@ -52,7 +53,7 @@ extension HCEventListViewController: UITableViewDelegate, UITableViewDataSource 
         detailPage.m_branch = m_Branch
         detailPage.m_event = m_Branch?.event[indexPath.item]
         detailPage.m_iIntdex = indexPath.item
-        
+        detailPage.m_imgIcon = m_imgIcon
         self.navigationController?.pushViewController(detailPage, animated: true)
     }
     
@@ -68,11 +69,7 @@ extension HCEventListViewController: UITableViewDelegate, UITableViewDataSource 
         
         let header = m_tvEventList?.dequeueReusableCell(withIdentifier: "header") as! HCEventListHeaderTableViewCell
         header.m_lbTitle?.text = m_Branch?.name
-        guard let url = URL(string: (m_Branch!.logo)) else {
-            return header
-        }
-        let data = try? Data(contentsOf: url)
-        header.m_imgIcon!.image = UIImage(data: data!)
+        header.m_imgIcon!.image = m_imgIcon
         
         return header
     }

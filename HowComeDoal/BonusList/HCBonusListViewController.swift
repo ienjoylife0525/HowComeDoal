@@ -112,6 +112,11 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let eventPage = HCEventListViewController()
+        guard let url = URL(string: (m_bonusList?.branch[indexPath.item].logo)!) else {
+            return 
+        }
+        let data = try? Data(contentsOf: url)
+        eventPage.m_imgIcon = UIImage(data: data!)
         eventPage.m_Branch = m_bonusList?.branch[indexPath.item]
         self.navigationController?.pushViewController(eventPage, animated: true)
     }

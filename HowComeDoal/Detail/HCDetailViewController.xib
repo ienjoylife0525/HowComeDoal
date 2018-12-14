@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HCDetailViewController" customModule="HowComeDoal" customModuleProvider="target">
             <connections>
-                <outlet property="m_imgBranchIcon" destination="I8g-YJ-vk0" id="1QK-I1-y8z"/>
+                <outlet property="m_ivBranchIcon" destination="I8g-YJ-vk0" id="ukL-uq-0VI"/>
                 <outlet property="m_lbBranchTitle" destination="bHG-g4-57U" id="Ofo-CI-tv5"/>
                 <outlet property="m_lbDetail" destination="Mob-Dh-6bV" id="Rl8-WS-CKD"/>
                 <outlet property="m_lbEventDate" destination="Cpw-nN-hfb" id="WeX-I2-y1u"/>
@@ -179,6 +179,7 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-YJ-vk0">
                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                             <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Mft-M3-GJO"/>
                                 <constraint firstAttribute="width" secondItem="I8g-YJ-vk0" secondAttribute="height" multiplier="1:1" id="nOp-If-wlE"/>
                             </constraints>
                         </imageView>

@@ -13,10 +13,11 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
     var m_branch: Branch?
     var m_iIntdex: Int?
     var m_event: Event?
+    var m_imgIcon: UIImage?
     
     @IBOutlet weak var m_svScroll: UIScrollView?
     @IBOutlet weak var m_lbBranchTitle: UILabel?
-    @IBOutlet weak var m_imgBranchIcon: UIImageView?
+    @IBOutlet weak var m_ivBranchIcon: UIImageView?
     @IBOutlet weak var m_lbEventTitle: UILabel?
     @IBOutlet weak var m_lbEventDate: UILabel?
     @IBOutlet weak var m_lbDetail: UILabel?
@@ -47,9 +48,11 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
         m_lbDetail?.text = m_event?.detail
         m_lbNote?.text = m_event?.note
         m_lbEventDate?.text = dateSet()
+        m_ivBranchIcon?.image = m_imgIcon
         m_svScroll?.showsVerticalScrollIndicator = true
         m_svScroll?.isScrollEnabled = true
         m_svScroll?.delegate = self
+    
     }
     
     private func dateSet() -> String {
