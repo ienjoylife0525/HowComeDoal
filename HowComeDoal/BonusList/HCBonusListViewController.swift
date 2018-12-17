@@ -119,7 +119,7 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
         
         print("\(indexPath.row) + \(m_branchs[indexPath.row].name)")
         if m_bSendRequest == false {
-            if indexPath.item + 1 == m_branchs.count {
+            if indexPath.item + 1 == m_branchs.count - m_iLoadRange / 2 {
                 m_iLoadFrom += m_iLoadRange
                 m_iLoadEnd += m_iLoadRange
                 callWebService(from: m_iLoadFrom, to: m_iLoadRange)
