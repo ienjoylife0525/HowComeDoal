@@ -31,18 +31,22 @@ class HCBonusListViewController: UIViewController {
     var m_iLoadRange: Int = 30
     var m_bSendRequest: Bool = false
     
+    let m_picQueue = DispatchQueue(label: "com.HCD.loadpicqueue", attributes: .concurrent)
+    
     @IBOutlet weak var m_tvBonusList: UITableView?
     @IBOutlet weak var m_vLoadingView: UIView?
     @IBOutlet weak var m_avLoading: UIActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         m_avLoading?.startAnimating()
         setLocation()
         
         let nib = UINib(nibName: "HCBonusListTableViewCell", bundle: nil)
-        
         m_tvBonusList?.register(nib, forCellReuseIdentifier: "BonusListCell")
+        let loadNib = UINib(nibName: "HCDBonusListFooterTableViewCell", bundle: nil)
+        m_tvBonusList?.register(loadNib, forCellReuseIdentifier: "LoadingCell")
         m_tvBonusList?.dataSource = self
         m_tvBonusList?.delegate = self
         
@@ -68,7 +72,7 @@ class HCBonusListViewController: UIViewController {
     }
     
     private func callWebService(from: Int, to: Int) {
-
+        //Set Parameter
         m_aryParameter.append(("appId", k_iAppId))
         switch m_ibonusType {
         case .card:
@@ -81,18 +85,21 @@ class HCBonusListViewController: UIViewController {
         m_aryParameter.append(("OS", "IOS"))
         m_aryParameter.append(("lat", m_strLatitude!))
         m_aryParameter.append(("lon", m_strLongitude!))
+        
         m_bSendRequest = true
         print("Send request \(from) ~ \(to)")
+        //Send Request
         HttpClient().requestWithURL(urlString: k_strURL, parameters: m_aryParameter) { (data) in
+            self.m_data = data
+            print("Data back!! \(data)")
+            self.decode()
+            if self.m_iLoadEnd > self.m_branchs.count {
+                self.m_branchs += (self.m_bonusList?.branch)!
+            }
+            //Update UI
             DispatchQueue.main.sync {
-                self.m_data = data
-                print("Data back!! \(data)")
-                self.decode()
-                if self.m_iLoadEnd > self.m_branchs.count {
-                    self.m_branchs += (self.m_bonusList?.branch)!
-                }
-                self.m_tvBonusList?.reloadData()
                 
+                self.m_tvBonusList?.reloadData()
                 self.m_vLoadingView?.isHidden = true
                 self.m_avLoading?.stopAnimating()
                 self.m_avLoading?.isHidden = true
@@ -108,18 +115,38 @@ class HCBonusListViewController: UIViewController {
 
 extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = m_branchs.count
+        if m_branchs.count == 0 {
+            return 0
+        }
+        //For loading view
+        let count = m_branchs.count + 1
         print(count)
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //Loading Cell
+        if indexPath.item == m_branchs.count {
+            let cell = m_tvBonusList?.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! HCDBonusListFooterTableViewCell
+            cell.m_avLoading?.startAnimating()
+            return cell
+        }
+        //Normal Cell
         let cell = m_tvBonusList?.dequeueReusableCell(withIdentifier: "BonusListCell", for: indexPath) as! HCBonusListTableViewCell
         cell.m_lbTitle?.text = m_branchs[indexPath.item].name
+        cell.tag = indexPath.item
         if m_branchs[indexPath.item].logo != "" {
-            let url = URL(string: m_branchs[indexPath.item].logo)
-            let data = try? Data(contentsOf: url!)
-            cell.m_ivmgIcon?.image = UIImage(data: data!)
+            //Mutiple Thread
+            m_picQueue.async {
+                let url = URL(string: self.m_branchs[indexPath.item].logo)
+                let data = try? Data(contentsOf: url!)
+                DispatchQueue.main.async {
+                    if cell.tag == indexPath.item {
+                        cell.m_ivmgIcon?.image = UIImage(data: data!)
+                    }
+                }
+            }
         } else {
             cell.m_ivmgIcon?.image = UIImage(named: "defaultIcon")
         }
@@ -134,6 +161,7 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
         }
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(k_iCellHeight)

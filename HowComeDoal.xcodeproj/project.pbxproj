@@ -22,6 +22,8 @@
 		6E1D959421C77F96000BD28F /* HCDCuponViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E1D959221C77F96000BD28F /* HCDCuponViewController.xib */; };
 		6E1D959921C789AF000BD28F /* HCDWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D959721C789AF000BD28F /* HCDWebViewController.swift */; };
 		6E1D959A21C789AF000BD28F /* HCDWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E1D959821C789AF000BD28F /* HCDWebViewController.xib */; };
+		6E1D959E21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D959C21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.swift */; };
+		6E1D959F21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E1D959D21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.xib */; };
 		6E7BDC9121BF959D0003A907 /* HCBonusListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7BDC8F21BF959D0003A907 /* HCBonusListViewController.swift */; };
 		6E7BDC9221BF959D0003A907 /* HCBonusListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7BDC9021BF959D0003A907 /* HCBonusListViewController.xib */; };
 		6E7BDC9621BF9A5A0003A907 /* HCBonusListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7BDC9421BF9A5A0003A907 /* HCBonusListTableViewCell.swift */; };
@@ -54,6 +56,8 @@
 		6E1D959221C77F96000BD28F /* HCDCuponViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCDCuponViewController.xib; sourceTree = "<group>"; };
 		6E1D959721C789AF000BD28F /* HCDWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCDWebViewController.swift; sourceTree = "<group>"; };
 		6E1D959821C789AF000BD28F /* HCDWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCDWebViewController.xib; sourceTree = "<group>"; };
+		6E1D959C21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCDBonusListFooterTableViewCell.swift; sourceTree = "<group>"; };
+		6E1D959D21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCDBonusListFooterTableViewCell.xib; sourceTree = "<group>"; };
 		6E7BDC8F21BF959D0003A907 /* HCBonusListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBonusListViewController.swift; sourceTree = "<group>"; };
 		6E7BDC9021BF959D0003A907 /* HCBonusListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCBonusListViewController.xib; sourceTree = "<group>"; };
 		6E7BDC9421BF9A5A0003A907 /* HCBonusListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBonusListTableViewCell.swift; sourceTree = "<group>"; };
@@ -165,6 +169,15 @@
 			path = Web;
 			sourceTree = "<group>";
 		};
+		6E1D959B21C79EAC000BD28F /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				6E1D959C21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.swift */,
+				6E1D959D21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.xib */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
 		6E7BDC8E21BF957B0003A907 /* BonusList */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +191,7 @@
 		6E7BDC9321BF9A250003A907 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				6E1D959B21C79EAC000BD28F /* Footer */,
 				6E7BDC9421BF9A5A0003A907 /* HCBonusListTableViewCell.swift */,
 				6E7BDC9521BF9A5A0003A907 /* HCBonusListTableViewCell.xib */,
 			);
@@ -312,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E1D959F21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.xib in Resources */,
 				6E1D956C21C1FEA5000BD28F /* HCEventListHeaderTableViewCell.xib in Resources */,
 				6E7BDC9721BF9A5A0003A907 /* HCBonusListTableViewCell.xib in Resources */,
 				6E1D958221C35E85000BD28F /* HCMapViewController.xib in Resources */,
@@ -339,6 +354,7 @@
 				6EDB81CE21BF72430057BDDF /* ViewController.swift in Sources */,
 				6E1D959921C789AF000BD28F /* HCDWebViewController.swift in Sources */,
 				6E7BDC9D21BFC9CA0003A907 /* HCAPIModel.swift in Sources */,
+				6E1D959E21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.swift in Sources */,
 				6E7BDC9121BF959D0003A907 /* HCBonusListViewController.swift in Sources */,
 				6E1D959321C77F96000BD28F /* HCDCuponViewController.swift in Sources */,
 				6EDB81E921BF78470057BDDF /* HCMainPageViewController.swift in Sources */,
