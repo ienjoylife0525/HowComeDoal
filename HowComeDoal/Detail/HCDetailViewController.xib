@@ -15,6 +15,7 @@
                 <outlet property="m_btnCupon" destination="O23-gd-3Tf" id="15P-3a-fsW"/>
                 <outlet property="m_btnLeft" destination="ppw-EX-pMk" id="aNF-cH-bbo"/>
                 <outlet property="m_btnRight" destination="NDq-2z-Y5S" id="0aw-ef-BSU"/>
+                <outlet property="m_btnWeb" destination="iyL-4Y-gQF" id="OKA-4p-HNn"/>
                 <outlet property="m_ivBranchIcon" destination="I8g-YJ-vk0" id="ukL-uq-0VI"/>
                 <outlet property="m_lbBranchTitle" destination="bHG-g4-57U" id="Ofo-CI-tv5"/>
                 <outlet property="m_lbDetail" destination="Mob-Dh-6bV" id="Rl8-WS-CKD"/>
@@ -104,13 +105,22 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyL-4Y-gQF">
+                                            <rect key="frame" x="201" y="80" width="31" height="30"/>
+                                            <state key="normal" title="Web"/>
+                                            <connections>
+                                                <action selector="toWeb:" destination="-1" eventType="touchUpInside" id="KaU-ET-gpu"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="NDq-2z-Y5S" secondAttribute="trailing" constant="8" id="3Lj-zv-zPP"/>
+                                        <constraint firstItem="iyL-4Y-gQF" firstAttribute="leading" secondItem="O23-gd-3Tf" secondAttribute="trailing" constant="30" id="4pk-Bd-RG1"/>
                                         <constraint firstItem="AEP-6d-hfb" firstAttribute="leading" secondItem="JdP-Jk-fT3" secondAttribute="leading" id="6k3-h0-57d"/>
                                         <constraint firstItem="Cpw-nN-hfb" firstAttribute="leading" secondItem="dxv-LS-igg" secondAttribute="leading" id="76e-kX-ikU"/>
                                         <constraint firstItem="yQV-1J-ON0" firstAttribute="leading" secondItem="xzn-vo-Hfr" secondAttribute="leading" id="88u-J0-VXd"/>
+                                        <constraint firstItem="iyL-4Y-gQF" firstAttribute="top" secondItem="O23-gd-3Tf" secondAttribute="top" id="8LG-kV-jII"/>
                                         <constraint firstItem="yQV-1J-ON0" firstAttribute="width" secondItem="xzn-vo-Hfr" secondAttribute="width" id="8iv-Xo-PiK"/>
                                         <constraint firstItem="Cpw-nN-hfb" firstAttribute="top" secondItem="dxv-LS-igg" secondAttribute="bottom" id="9S5-KA-U92"/>
                                         <constraint firstItem="yQV-1J-ON0" firstAttribute="top" secondItem="O23-gd-3Tf" secondAttribute="bottom" constant="10" id="DCq-Ud-67Y"/>
@@ -126,6 +136,7 @@
                                         <constraint firstItem="NDq-2z-Y5S" firstAttribute="centerY" secondItem="JdP-Jk-fT3" secondAttribute="centerY" id="edC-PY-hIH"/>
                                         <constraint firstItem="O23-gd-3Tf" firstAttribute="top" secondItem="Cpw-nN-hfb" secondAttribute="bottom" constant="10" id="fTQ-ZG-j0k"/>
                                         <constraint firstItem="yQV-1J-ON0" firstAttribute="top" secondItem="JdP-Jk-fT3" secondAttribute="bottom" constant="10" id="ka8-V5-Bfd"/>
+                                        <constraint firstItem="iyL-4Y-gQF" firstAttribute="bottom" secondItem="O23-gd-3Tf" secondAttribute="bottom" id="lyf-Ip-3He"/>
                                         <constraint firstItem="JdP-Jk-fT3" firstAttribute="top" secondItem="xzn-vo-Hfr" secondAttribute="top" constant="10" id="m21-wT-W7G"/>
                                         <constraint firstAttribute="bottom" secondItem="Mob-Dh-6bV" secondAttribute="bottom" constant="10" id="nOX-BY-RHd"/>
                                         <constraint firstItem="ppw-EX-pMk" firstAttribute="centerY" secondItem="JdP-Jk-fT3" secondAttribute="centerY" id="omk-bF-2cJ"/>

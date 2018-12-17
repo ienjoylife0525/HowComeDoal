@@ -25,6 +25,7 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var m_btnRight: UIButton?
     @IBOutlet weak var m_btnLeft: UIButton?
     @IBOutlet weak var m_btnCupon: UIButton?
+    @IBOutlet weak var m_btnWeb: UIButton?
     
     @IBAction func toRight(_ sender: UIButton) {
         var nextIndex = m_iIntdex! + 1
@@ -52,6 +53,14 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
         cuponPage.m_strTitle = m_branch?.name
         cuponPage.m_strCuponURL = m_event?.eventPic[0].url
         self.navigationController?.pushViewController(cuponPage, animated: true)
+    }
+    
+    @IBAction func toWeb(_ sender: UIButton) {
+        let webPage = HCDWebViewController()
+        webPage.m_imgIcon = m_imgIcon
+        webPage.m_strTitle = m_event?.title
+        webPage.m_strWebURL = m_event?.website
+        self.navigationController?.pushViewController(webPage, animated: true)
     }
     
     @IBAction func toMap(_ sender: UIButton) {
@@ -88,6 +97,9 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
         }
         if m_event?.eventPic[0].url == "" {
             m_btnCupon?.isEnabled = false
+        }
+        if m_event?.website == "" {
+            m_btnWeb?.isEnabled == false
         }
         m_svScroll?.showsVerticalScrollIndicator = true
         m_svScroll?.isScrollEnabled = true
