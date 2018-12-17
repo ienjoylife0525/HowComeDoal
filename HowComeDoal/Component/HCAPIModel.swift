@@ -38,7 +38,12 @@ struct Event: Decodable {
     let startDate: String
     let endDate: String
     let lastUpdateTime: String
+    let eventPic: [EventPic]
     
+}
+
+struct EventPic: Decodable {
+    let url: String
 }
 
 

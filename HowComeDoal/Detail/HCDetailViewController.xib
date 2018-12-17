@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HCDetailViewController" customModule="HowComeDoal" customModuleProvider="target">
             <connections>
+                <outlet property="m_btnCupon" destination="O23-gd-3Tf" id="15P-3a-fsW"/>
                 <outlet property="m_btnLeft" destination="ppw-EX-pMk" id="aNF-cH-bbo"/>
                 <outlet property="m_btnRight" destination="NDq-2z-Y5S" id="0aw-ef-BSU"/>
                 <outlet property="m_ivBranchIcon" destination="I8g-YJ-vk0" id="ukL-uq-0VI"/>
