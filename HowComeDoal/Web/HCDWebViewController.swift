@@ -18,9 +18,12 @@ class HCDWebViewController: UIViewController {
     @IBOutlet weak var m_ivIcon: UIImageView?
     @IBOutlet weak var m_lbTitle: UILabel?
     @IBOutlet weak var m_wvWeb: WKWebView?
-    
+    @IBOutlet weak var m_vLoadingView: UIView?
+    @IBOutlet weak var m_avLoading: UIActivityIndicatorView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        m_wvWeb?.navigationDelegate = self
         let url = URL(string: m_strWebURL!)
         let request = URLRequest(url: url!)
         m_wvWeb?.load(request)
@@ -28,7 +31,17 @@ class HCDWebViewController: UIViewController {
         m_lbTitle?.text = m_strTitle
 
     }
+    
+}
 
-
-
+extension HCDWebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        m_avLoading?.startAnimating()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        m_vLoadingView?.isHidden = true
+        m_avLoading?.stopAnimating()
+        m_avLoading?.isHidden = true
+    }
 }

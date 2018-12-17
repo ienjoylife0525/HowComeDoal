@@ -12,8 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HCDWebViewController" customModule="HowComeDoal" customModuleProvider="target">
             <connections>
+                <outlet property="m_avLoading" destination="R7l-XK-wf2" id="qx8-bs-tt9"/>
                 <outlet property="m_ivIcon" destination="m5F-ej-L2z" id="MdC-TP-YJx"/>
                 <outlet property="m_lbTitle" destination="RhT-OL-US0" id="vSd-RQ-Hjf"/>
+                <outlet property="m_vLoadingView" destination="cKB-Jo-Uj8" id="E2P-MF-4kk"/>
                 <outlet property="m_wvWeb" destination="kNX-yt-gRY" id="jRa-cC-lab"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -58,15 +60,32 @@
                         <wkPreferences key="preferences"/>
                     </wkWebViewConfiguration>
                 </wkWebView>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKB-Jo-Uj8">
+                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="R7l-XK-wf2">
+                            <rect key="frame" x="169" y="280" width="37" height="37"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="R7l-XK-wf2" firstAttribute="centerX" secondItem="cKB-Jo-Uj8" secondAttribute="centerX" id="LJq-QN-iJW"/>
+                        <constraint firstItem="R7l-XK-wf2" firstAttribute="centerY" secondItem="cKB-Jo-Uj8" secondAttribute="centerY" id="qkV-LO-k2p"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cKB-Jo-Uj8" secondAttribute="trailing" id="2mI-mW-wLY"/>
                 <constraint firstItem="ZeT-mL-Kkz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9t0-Ho-JRO"/>
                 <constraint firstItem="ZeT-mL-Kkz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Hy3-F7-WVD"/>
                 <constraint firstItem="kNX-yt-gRY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Syk-Do-XrA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kNX-yt-gRY" secondAttribute="trailing" id="aUa-99-FVb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kNX-yt-gRY" secondAttribute="bottom" id="lpb-iB-dMN"/>
                 <constraint firstItem="kNX-yt-gRY" firstAttribute="top" secondItem="ZeT-mL-Kkz" secondAttribute="bottom" id="r5f-lT-oYK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cKB-Jo-Uj8" secondAttribute="bottom" id="umg-gh-GTs"/>
+                <constraint firstItem="cKB-Jo-Uj8" firstAttribute="top" secondItem="ZeT-mL-Kkz" secondAttribute="bottom" id="wRx-E8-Hce"/>
+                <constraint firstItem="cKB-Jo-Uj8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xXU-cn-eaf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZeT-mL-Kkz" secondAttribute="trailing" id="zd8-4V-c6e"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
