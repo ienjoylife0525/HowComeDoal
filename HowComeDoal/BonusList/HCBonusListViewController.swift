@@ -32,9 +32,12 @@ class HCBonusListViewController: UIViewController {
     var m_bSendRequest: Bool = false
     
     @IBOutlet weak var m_tvBonusList: UITableView?
+    @IBOutlet weak var m_vLoadingView: UIView?
+    @IBOutlet weak var m_avLoading: UIActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        m_avLoading?.startAnimating()
         setLocation()
         
         let nib = UINib(nibName: "HCBonusListTableViewCell", bundle: nil)
@@ -89,6 +92,10 @@ class HCBonusListViewController: UIViewController {
                     self.m_branchs += (self.m_bonusList?.branch)!
                 }
                 self.m_tvBonusList?.reloadData()
+                
+                self.m_vLoadingView?.isHidden = true
+                self.m_avLoading?.stopAnimating()
+                self.m_avLoading?.isHidden = true
             }
             self.m_bSendRequest = false
         }

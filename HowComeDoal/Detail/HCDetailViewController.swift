@@ -99,7 +99,7 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
             m_btnCupon?.isEnabled = false
         }
         if m_event?.website == "" {
-            m_btnWeb?.isEnabled == false
+            m_btnWeb?.isEnabled = false
         }
         m_svScroll?.showsVerticalScrollIndicator = true
         m_svScroll?.isScrollEnabled = true
