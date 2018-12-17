@@ -20,7 +20,6 @@ class HttpClient: NSObject {
         }
         
         guard let queryedURL = urlComponents.url else { return }
-        print(queryedURL)
         let request = URLRequest(url: queryedURL)
         fetchDataByDataTask(from: request, completion: completion)
         
@@ -32,7 +31,6 @@ class HttpClient: NSObject {
                 print(error as Any)
             } else {
                 guard let data = data else { return }
-                print(data)
                 completion(data)
             }
         }
