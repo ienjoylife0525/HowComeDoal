@@ -13,33 +13,32 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="KGk-i7-Jjw" customClass="HCEventListHeaderTableViewCell" customModule="HowComeDoal" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="358" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="355" height="49.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="358" height="49.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Doy-zK-bTl">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50.5"/>
+                        <rect key="frame" x="3" y="3" width="43.5" height="43.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="4Se-4b-kB5"/>
                             <constraint firstAttribute="width" secondItem="Doy-zK-bTl" secondAttribute="height" multiplier="1:1" id="RrI-Lm-Hj0"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93m-hI-9aC">
-                        <rect key="frame" x="60" y="0.0" width="42" height="50.5"/>
+                        <rect key="frame" x="56.5" y="0.0" width="42" height="49.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="93m-hI-9aC" firstAttribute="bottom" secondItem="Doy-zK-bTl" secondAttribute="bottom" id="H3E-ET-HRQ"/>
-                    <constraint firstAttribute="bottom" secondItem="Doy-zK-bTl" secondAttribute="bottom" id="XKv-fR-cAX"/>
+                    <constraint firstAttribute="bottom" secondItem="93m-hI-9aC" secondAttribute="bottom" id="1DR-Tl-7pk"/>
+                    <constraint firstItem="93m-hI-9aC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Pkp-Ig-I26"/>
+                    <constraint firstAttribute="bottom" secondItem="Doy-zK-bTl" secondAttribute="bottom" constant="3" id="XKv-fR-cAX"/>
                     <constraint firstItem="93m-hI-9aC" firstAttribute="leading" secondItem="Doy-zK-bTl" secondAttribute="trailing" constant="10" id="c9E-Ot-MBV"/>
-                    <constraint firstItem="93m-hI-9aC" firstAttribute="top" secondItem="Doy-zK-bTl" secondAttribute="top" id="hao-rE-TAC"/>
-                    <constraint firstItem="Doy-zK-bTl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="htc-N0-1wc"/>
-                    <constraint firstItem="Doy-zK-bTl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vJ6-00-4EZ"/>
+                    <constraint firstItem="Doy-zK-bTl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="htc-N0-1wc"/>
+                    <constraint firstItem="Doy-zK-bTl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="vJ6-00-4EZ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -47,7 +46,7 @@
                 <outlet property="m_imgIcon" destination="Doy-zK-bTl" id="avl-IR-091"/>
                 <outlet property="m_lbTitle" destination="93m-hI-9aC" id="gmV-IT-Kek"/>
             </connections>
-            <point key="canvasLocation" x="165.59999999999999" y="134.93253373313345"/>
+            <point key="canvasLocation" x="168" y="134.93253373313345"/>
         </tableViewCell>
     </objects>
 </document>

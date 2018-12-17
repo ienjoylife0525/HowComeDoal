@@ -137,7 +137,7 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
         if m_branchs[indexPath.item].logo != "" {
             let url = URL(string: m_branchs[indexPath.item].logo)
             let data = try? Data(contentsOf: url!)
-            eventPage.m_imgIcon? = UIImage(data: data!)!
+            eventPage.m_imgIcon = UIImage(data: data!)!
         } else {
             eventPage.m_imgIcon = UIImage(named: "defaultIcon")
         }
