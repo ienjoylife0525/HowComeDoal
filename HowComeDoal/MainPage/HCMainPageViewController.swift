@@ -28,6 +28,7 @@ class HCMainPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.titleView = UIImageView(image: UIImage(named: "HCDLogo"))
 
         
     }

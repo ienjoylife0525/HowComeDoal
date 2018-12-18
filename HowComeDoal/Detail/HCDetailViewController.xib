@@ -59,7 +59,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JdP-Jk-fT3">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HCDLogo" translatesAutoresizingMaskIntoConstraints="NO" id="JdP-Jk-fT3">
                                             <rect key="frame" x="35" y="10" width="80" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="dSP-oE-AJT"/>
@@ -255,6 +255,7 @@
         </view>
     </objects>
     <resources>
+        <image name="HCDLogo" width="180" height="180"/>
         <image name="btnLeft" width="13" height="22"/>
         <image name="btnRight" width="13" height="22"/>
         <image name="mapBtn" width="180" height="180"/>

@@ -44,7 +44,7 @@ class HCMapViewController: UIViewController {
         width?.isActive = true
         height?.isActive = true
         self.navigationItem.setRightBarButton(m_btnHome, animated: true)
-        
+        self.navigationItem.titleView = UIImageView(image: UIImage(named: "HCDLogo"))
     }
     
     @objc private func toHome() {
