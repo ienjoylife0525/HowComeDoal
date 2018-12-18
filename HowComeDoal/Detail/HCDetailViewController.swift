@@ -18,6 +18,7 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var m_svScroll: UIScrollView?
     @IBOutlet weak var m_lbBranchTitle: UILabel?
     @IBOutlet weak var m_ivBranchIcon: UIImageView?
+    @IBOutlet weak var m_lbDistance: UILabel?
     @IBOutlet weak var m_lbEventTitle: UILabel?
     @IBOutlet weak var m_lbEventDate: UILabel?
     @IBOutlet weak var m_lbDetail: UILabel?
@@ -87,6 +88,7 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
     private func viewSet() {
         self.view.backgroundColor = UIColor.rgb(k_cIsabelline)
         m_lbBranchTitle?.text = m_branch?.name
+        m_lbDistance?.text = (m_branch?.distance)! + " km"
         m_lbEventTitle?.text = m_event?.title
         m_lbDetail?.text = m_event?.detail
         m_lbNote?.text = m_event?.note

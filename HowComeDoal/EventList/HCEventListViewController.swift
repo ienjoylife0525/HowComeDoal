@@ -23,6 +23,7 @@ class HCEventListViewController: UIViewController {
         
         m_tvEventList?.delegate = self
         m_tvEventList?.dataSource = self
+        self.m_tvEventList?.tableFooterView = UIView()
         
     }
 
@@ -70,6 +71,14 @@ extension HCEventListViewController: UITableViewDelegate, UITableViewDataSource 
         let header = m_tvEventList?.dequeueReusableCell(withIdentifier: "header") as! HCEventListHeaderTableViewCell
         header.m_lbTitle?.text = m_Branch?.name
         header.m_imgIcon!.image = m_imgIcon
+        header.m_lbDistance?.text = (m_Branch?.distance)! + " km"
+        header.m_toMap = {(button) -> Void in
+            let mapPage = HCMapViewController()
+            mapPage.m_branch = self.m_Branch
+            mapPage.m_imgIcon = self.m_imgIcon
+            self.navigationController?.pushViewController(mapPage, animated: true)
+            
+        }
         
         return header
     }

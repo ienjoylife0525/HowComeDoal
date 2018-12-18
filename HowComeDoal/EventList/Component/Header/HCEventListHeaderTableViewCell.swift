@@ -10,8 +10,16 @@ import UIKit
 
 class HCEventListHeaderTableViewCell: UITableViewCell {
     
+    var m_toMap: ((_ button: UIButton) -> Void)?
+    
     @IBOutlet weak var m_imgIcon: UIImageView?
     @IBOutlet weak var m_lbTitle: UILabel?
+    @IBOutlet weak var m_lbDistance: UILabel?
+    @IBAction func toMap(_ sender: UIButton) {
+        if m_toMap != nil {
+            m_toMap!(sender)
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
