@@ -85,6 +85,7 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func viewSet() {
+        self.view.backgroundColor = UIColor.rgb(k_cIsabelline)
         m_lbBranchTitle?.text = m_branch?.name
         m_lbEventTitle?.text = m_event?.title
         m_lbDetail?.text = m_event?.detail
@@ -119,5 +120,7 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
     
 
 }
+
+
 
 

@@ -21,6 +21,9 @@ class HCMainPageViewController: UIViewController {
     
     @IBAction func nearBonus(_ sender: UIButton) {
         print("near Click")
+        let listPage = HCBonusListViewController()
+        listPage.m_ibonusType = .location
+        self.navigationController?.pushViewController(listPage, animated: true)
     }
 
     override func viewDidLoad() {

@@ -16,4 +16,9 @@ let k_iDataGroupCard: String = "07"
 let k_strDevice: String = "IOS"
 
 // UI
-let k_iCellHeight: Int = 50
+let k_iCellHeight: Int = 70
+let k_cSpanishGray: Int = 0x8E9B90
+let k_cDarkVanilla: Int = 0xD4CDAB
+let k_cDutchWhite: Int = 0xDCE2BD
+let k_cYankeesBlue: Int = 0x153243
+let k_cIsabelline: Int = 0xF4F9E9

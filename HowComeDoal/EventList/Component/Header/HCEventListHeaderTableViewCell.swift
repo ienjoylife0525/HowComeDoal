@@ -15,7 +15,7 @@ class HCEventListHeaderTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor.white
+        m_lbTitle?.textColor = UIColor.rgb(k_cYankeesBlue)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -135,6 +135,8 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
         //Normal Cell
         let cell = m_tvBonusList?.dequeueReusableCell(withIdentifier: "BonusListCell", for: indexPath) as! HCBonusListTableViewCell
         cell.m_lbTitle?.text = m_branchs[indexPath.item].name
+        cell.m_lbDistance?.text = m_branchs[indexPath.item].distance + " km"
+    
         cell.tag = indexPath.item
         if m_branchs[indexPath.item].logo != "" {
             //Mutiple Thread
@@ -144,6 +146,13 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
                 DispatchQueue.main.async {
                     if cell.tag == indexPath.item {
                         cell.m_ivmgIcon?.image = UIImage(data: data!)
+                        cell.m_fToMap = { (button: UIButton) -> Void in
+                            let mapPage = HCMapViewController()
+                            mapPage.m_branch = self.m_branchs[indexPath.item]
+                            mapPage.m_imgIcon = UIImage(data: data!)
+                            self.navigationController?.pushViewController(mapPage, animated: true)
+                            
+                        }
                     }
                 }
             }
