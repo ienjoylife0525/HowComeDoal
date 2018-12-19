@@ -23,7 +23,10 @@ class HCEventListHeaderTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = UIColor.rgb(k_cIsabelline)
         m_lbTitle?.textColor = UIColor.rgb(k_cYankeesBlue)
+        m_imgIcon?.clipsToBounds = true
+        m_imgIcon?.layer.cornerRadius = k_cgfCorner
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

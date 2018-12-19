@@ -22,6 +22,8 @@ class HCDCuponViewController: UIViewController {
         super.viewDidLoad()
         m_lbTitle?.text = m_strTitle
         m_ivIcon?.image = m_imgIcon
+        m_ivIcon?.layer.cornerRadius = k_cgfCorner
+        m_ivIcon?.clipsToBounds = true
         let url = URL(string: m_strCuponURL!)
         let data = try? Data(contentsOf: url!)
         m_ivCupon?.image = UIImage(data: data!)

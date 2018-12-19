@@ -24,7 +24,11 @@ class HCBonusListTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = UIColor.rgb(k_cIsabelline)
         m_lbTitle?.textColor = UIColor.rgb(k_cYankeesBlue)
+        m_ivmgIcon?.clipsToBounds = true
+        m_ivmgIcon?.layer.cornerRadius = k_cgfCorner
+        
         
     }
 

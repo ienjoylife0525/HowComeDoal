@@ -26,34 +26,34 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZeT-mL-Kkz">
-                    <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="70"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m5F-ej-L2z">
-                            <rect key="frame" x="3" y="3" width="44" height="44"/>
+                            <rect key="frame" x="3" y="3" width="64" height="64"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="m5F-ej-L2z" secondAttribute="height" multiplier="1:1" id="cST-OU-xEh"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhT-OL-US0">
-                            <rect key="frame" x="57" y="0.0" width="42" height="50"/>
+                            <rect key="frame" x="87" y="0.0" width="42" height="70"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.95686274510000002" green="0.97647058819999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="RhT-OL-US0" firstAttribute="leading" secondItem="m5F-ej-L2z" secondAttribute="trailing" constant="10" id="PbL-E2-pv0"/>
+                        <constraint firstItem="RhT-OL-US0" firstAttribute="leading" secondItem="m5F-ej-L2z" secondAttribute="trailing" constant="20" id="PbL-E2-pv0"/>
                         <constraint firstAttribute="bottom" secondItem="m5F-ej-L2z" secondAttribute="bottom" constant="3" id="T80-fe-F8t"/>
                         <constraint firstItem="RhT-OL-US0" firstAttribute="top" secondItem="ZeT-mL-Kkz" secondAttribute="top" id="gpO-Lh-cbI"/>
                         <constraint firstAttribute="bottom" secondItem="RhT-OL-US0" secondAttribute="bottom" id="umW-ce-WQj"/>
                         <constraint firstItem="m5F-ej-L2z" firstAttribute="leading" secondItem="ZeT-mL-Kkz" secondAttribute="leading" constant="3" id="xJZ-33-XBK"/>
-                        <constraint firstAttribute="height" constant="50" id="yUt-iZ-Uh7"/>
+                        <constraint firstAttribute="height" constant="70" id="yUt-iZ-Uh7"/>
                         <constraint firstItem="m5F-ej-L2z" firstAttribute="top" secondItem="ZeT-mL-Kkz" secondAttribute="top" constant="3" id="zWH-lj-BCA"/>
                     </constraints>
                 </view>
                 <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNX-yt-gRY">
-                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                    <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <wkWebViewConfiguration key="configuration">
                         <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -61,10 +61,10 @@
                     </wkWebViewConfiguration>
                 </wkWebView>
                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKB-Jo-Uj8">
-                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                    <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                     <subviews>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="R7l-XK-wf2">
-                            <rect key="frame" x="169" y="280" width="37" height="37"/>
+                            <rect key="frame" x="169" y="270" width="37" height="37"/>
                         </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

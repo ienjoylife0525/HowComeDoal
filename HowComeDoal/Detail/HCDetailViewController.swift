@@ -103,7 +103,7 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func viewSet() {
-        self.view.backgroundColor = UIColor.rgb(k_cIsabelline)
+        self.view.backgroundColor = UIColor.rgb(k_cSpanishGray)
         m_lbBranchTitle?.text = m_branch?.name
         m_lbDistance?.text = (m_branch?.distance)! + " km"
         m_lbEventTitle?.text = m_event?.title
@@ -111,6 +111,8 @@ class HCDetailViewController: UIViewController, UIScrollViewDelegate {
         m_lbNote?.text = m_event?.note
         m_lbEventDate?.text = dateSet()
         m_ivBranchIcon?.image = m_imgIcon
+        m_ivBranchIcon?.layer.cornerRadius = k_cgfCorner
+        m_ivBranchIcon?.clipsToBounds = true
         if m_branch?.event.count == 1 {
             m_btnLeft?.isHidden = true
             m_btnRight?.isHidden = true

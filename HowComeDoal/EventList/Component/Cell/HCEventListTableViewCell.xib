@@ -25,10 +25,18 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightBtn" translatesAutoresizingMaskIntoConstraints="NO" id="W4k-HS-yIe">
+                        <rect key="frame" x="270" y="7" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="W4k-HS-yIe" secondAttribute="height" multiplier="1:1" id="Ndw-FM-rPJ"/>
+                            <constraint firstAttribute="width" constant="30" id="jNW-dz-nYY"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="W4k-HS-yIe" secondAttribute="trailing" constant="20" id="6if-A0-6ve"/>
                     <constraint firstItem="X0W-i6-hVb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BnV-Xn-8b1"/>
+                    <constraint firstItem="W4k-HS-yIe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fQD-X1-Zx8"/>
                     <constraint firstAttribute="bottom" secondItem="X0W-i6-hVb" secondAttribute="bottom" id="sF8-h6-fnC"/>
                     <constraint firstItem="X0W-i6-hVb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="sdD-sh-zE9"/>
                 </constraints>
@@ -39,4 +47,7 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="rightBtn" width="180" height="180"/>
+    </resources>
 </document>

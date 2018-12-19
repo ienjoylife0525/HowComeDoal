@@ -54,6 +54,8 @@ class HCMapViewController: UIViewController {
     
     private func setView() {
         m_ivIcon?.image = m_imgIcon
+        m_ivIcon?.layer.cornerRadius = k_cgfCorner
+        m_ivIcon?.clipsToBounds = true
         m_lbTitle?.text = m_branch?.name
         m_lbAddress?.text = m_branch?.addr
     }

@@ -28,6 +28,7 @@ class HCMainPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.rgb(k_cIsabelline)
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "HCDLogo"))
 
         

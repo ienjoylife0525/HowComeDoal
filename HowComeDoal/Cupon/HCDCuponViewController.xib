@@ -24,26 +24,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YoF-LP-xfY">
-                    <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="70"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lcb-0W-Nie">
-                            <rect key="frame" x="3" y="3" width="44" height="44"/>
+                            <rect key="frame" x="3" y="3" width="64" height="64"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="lcb-0W-Nie" secondAttribute="height" multiplier="1:1" id="DhG-Bp-K2L"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfQ-aS-YNK">
-                            <rect key="frame" x="57" y="0.0" width="42" height="50"/>
+                            <rect key="frame" x="87" y="0.0" width="42" height="70"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.95686274510000002" green="0.97647058819999999" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="lcb-0W-Nie" firstAttribute="top" secondItem="YoF-LP-xfY" secondAttribute="top" constant="3" id="3n6-rq-tPP"/>
-                        <constraint firstItem="QfQ-aS-YNK" firstAttribute="leading" secondItem="lcb-0W-Nie" secondAttribute="trailing" constant="10" id="9R0-kH-ZFN"/>
-                        <constraint firstAttribute="height" constant="50" id="Bzd-oI-xhg"/>
+                        <constraint firstItem="QfQ-aS-YNK" firstAttribute="leading" secondItem="lcb-0W-Nie" secondAttribute="trailing" constant="20" id="9R0-kH-ZFN"/>
+                        <constraint firstAttribute="height" constant="70" id="Bzd-oI-xhg"/>
                         <constraint firstAttribute="bottom" secondItem="lcb-0W-Nie" secondAttribute="bottom" constant="3" id="Ts3-Mr-TWQ"/>
                         <constraint firstItem="lcb-0W-Nie" firstAttribute="leading" secondItem="YoF-LP-xfY" secondAttribute="leading" constant="3" id="fil-Xx-KVh"/>
                         <constraint firstAttribute="bottom" secondItem="QfQ-aS-YNK" secondAttribute="bottom" id="i2o-sV-FGY"/>
@@ -51,10 +51,10 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eX3-t8-yJs">
-                    <rect key="frame" x="20" y="170" width="335" height="297"/>
+                    <rect key="frame" x="20" y="190" width="335" height="277"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.5568627451" green="0.60784313729999995" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="eX3-t8-yJs" firstAttribute="top" secondItem="YoF-LP-xfY" secondAttribute="bottom" constant="100" id="4Av-wU-OQE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eX3-t8-yJs" secondAttribute="bottom" constant="200" id="4n2-81-6PO"/>

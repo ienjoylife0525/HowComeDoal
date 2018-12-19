@@ -28,6 +28,8 @@ class HCDWebViewController: UIViewController {
         let request = URLRequest(url: url!)
         m_wvWeb?.load(request)
         m_ivIcon?.image = m_imgIcon
+        m_ivIcon?.layer.cornerRadius = k_cgfCorner
+        m_ivIcon?.clipsToBounds = true
         m_lbTitle?.text = m_strTitle
         
         //Set Home button

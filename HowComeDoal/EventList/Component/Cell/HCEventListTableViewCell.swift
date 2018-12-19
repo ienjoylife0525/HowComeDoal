@@ -14,7 +14,9 @@ class HCEventListTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = UIColor.rgb(k_cIsabelline)
         m_lbEventTitle?.textColor = UIColor.rgb(k_cYankeesBlue)
+        
         
     }
 

@@ -22,26 +22,26 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69d-UT-xKS">
                     <rect key="frame" x="50" y="220" width="97.5" height="97"/>
-                    <state key="normal" title="附近好康" image="locationBtn"/>
+                    <state key="normal" image="locationBtn"/>
                     <connections>
                         <action selector="nearBonus:" destination="-1" eventType="touchUpInside" id="PKb-9p-VhZ"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGw-fA-A5e">
                     <rect key="frame" x="227.5" y="220" width="97.5" height="97"/>
-                    <state key="normal" title="信用卡好康" image="cardBtn"/>
+                    <state key="normal" image="cardBtn"/>
                     <connections>
                         <action selector="cardBonus:" destination="-1" eventType="touchUpInside" id="O9y-ww-868"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="信用卡好康" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqT-8F-vg2">
-                    <rect key="frame" x="233" y="179" width="87" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="信用卡好康" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqT-8F-vg2">
+                    <rect key="frame" x="227.5" y="179" width="97.5" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.082352941176470587" green="0.19607843137254902" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近好康" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6C-eJ-OBs">
-                    <rect key="frame" x="64" y="179" width="70" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近好康" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6C-eJ-OBs">
+                    <rect key="frame" x="50" y="179" width="97.5" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.08235294118" green="0.1960784314" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
@@ -56,10 +56,12 @@
                 <constraint firstItem="LGw-fA-A5e" firstAttribute="leading" secondItem="69d-UT-xKS" secondAttribute="trailing" constant="80" id="JRa-JS-PTX"/>
                 <constraint firstItem="69d-UT-xKS" firstAttribute="top" secondItem="U6C-eJ-OBs" secondAttribute="bottom" constant="20" id="U7Q-S5-QyD"/>
                 <constraint firstItem="69d-UT-xKS" firstAttribute="height" secondItem="LGw-fA-A5e" secondAttribute="height" id="UEd-M5-Uia"/>
+                <constraint firstItem="dqT-8F-vg2" firstAttribute="width" secondItem="LGw-fA-A5e" secondAttribute="width" id="ama-j7-bLZ"/>
                 <constraint firstItem="69d-UT-xKS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="dAn-Qa-YfU"/>
                 <constraint firstItem="LGw-fA-A5e" firstAttribute="top" secondItem="dqT-8F-vg2" secondAttribute="bottom" constant="20" id="dKw-EI-PYP"/>
                 <constraint firstItem="U6C-eJ-OBs" firstAttribute="centerX" secondItem="69d-UT-xKS" secondAttribute="centerX" id="hAF-lD-1hC"/>
                 <constraint firstItem="69d-UT-xKS" firstAttribute="top" secondItem="LGw-fA-A5e" secondAttribute="top" id="kbS-D4-dkx"/>
+                <constraint firstItem="U6C-eJ-OBs" firstAttribute="width" secondItem="69d-UT-xKS" secondAttribute="width" id="xTS-3e-x8P"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="69d-UT-xKS" secondAttribute="bottom" constant="350" id="xZM-iR-UNp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

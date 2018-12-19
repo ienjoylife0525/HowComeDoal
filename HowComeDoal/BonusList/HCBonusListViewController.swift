@@ -124,11 +124,7 @@ class HCBonusListViewController: UIViewController {
             }
             self.m_bSendRequest = false
         }
-            
-        
     }
-
-
 }
 
 extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource {
