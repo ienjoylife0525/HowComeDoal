@@ -9,7 +9,6 @@
 import Foundation
 
 class HttpClient: NSObject {
-    var downloadCompletionBlock: ((_ data: Data) -> Void)?
     
     func requestWithURL(urlString: String, parameters: [(String, String)], completion: @escaping (Data) -> Void) {
         var urlComponents = URLComponents(string: urlString)!

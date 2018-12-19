@@ -26,10 +26,12 @@ class HCBonusListViewController: UIViewController {
     var m_strLongitude: String?
     var m_strLatitude: String?
     var m_branchs = [Branch]()
-    var m_iLoadFrom: Int = 1
-    var m_iLoadEnd: Int = 30
+    var m_iLoadFrom: Int = 0
+    var m_iLoadEnd: Int = 29
     var m_iLoadRange: Int = 30
     var m_bSendRequest: Bool = false
+    var m_iBranchTotal: Int?
+    var m_bLoadedAllData: Bool = false
     
     let m_picQueue = DispatchQueue(label: "com.HCD.loadpicqueue", attributes: .concurrent)
     
@@ -75,6 +77,7 @@ class HCBonusListViewController: UIViewController {
         do {
             let response = try decoder.decode(ResponseList.self, from: self.m_data!)
             m_bonusList = response
+            m_iBranchTotal = m_bonusList?.totalBranches
             
         } catch {
             print("error")
@@ -105,7 +108,7 @@ class HCBonusListViewController: UIViewController {
         m_aryParameter.append(("lon", m_strLongitude!))
         
         m_bSendRequest = true
-        print("Send request \(from) ~ \(to)")
+        print("Send request \(from) ~ \(m_iLoadEnd) range: \(to)")
         //Send Request
         HttpClient().requestWithURL(urlString: k_strURL, parameters: m_aryParameter) { (data) in
             self.m_data = data
@@ -113,6 +116,11 @@ class HCBonusListViewController: UIViewController {
             self.decode()
             if self.m_iLoadEnd > self.m_branchs.count {
                 self.m_branchs += (self.m_bonusList?.branch)!
+                print("Branchs count: \(self.m_branchs.count)")
+            }
+            if self.m_iLoadEnd > self.m_iBranchTotal! - 1{
+                self.m_iLoadEnd = self.m_iBranchTotal! - 1
+                self.m_bLoadedAllData = true
             }
             //Update UI
             DispatchQueue.main.sync {
@@ -133,19 +141,27 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
             return 0
         }
         //For loading view
-        let count = m_branchs.count + 1
-        print(count)
-        return count
+        let count = m_branchs.count
+        if m_iLoadEnd != m_iBranchTotal! - 1 {
+            return count + 1
+        } else {
+            return count
+        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        //Loading Cell
-        if indexPath.item == m_branchs.count {
-            let cell = m_tvBonusList?.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! HCDBonusListFooterTableViewCell
-            cell.m_avLoading?.startAnimating()
-            return cell
+        print(indexPath.item)
+        //Loading Footer Cell
+        if m_bLoadedAllData == false {
+            if indexPath.item == m_branchs.count {
+                let cell = m_tvBonusList?.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! HCDBonusListFooterTableViewCell
+                cell.m_avLoading?.startAnimating()
+                return cell
+            }
         }
+        
         //Normal Cell
         let cell = m_tvBonusList?.dequeueReusableCell(withIdentifier: "BonusListCell", for: indexPath) as! HCBonusListTableViewCell
         cell.m_lbTitle?.text = m_branchs[indexPath.item].name
@@ -172,12 +188,19 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
             cell.m_ivmgIcon?.image = UIImage(named: "defaultIcon")
         }
         
-        print("\(indexPath.row) + \(m_branchs[indexPath.row].name)")
-        if m_bSendRequest == false {
-            if indexPath.item + 1 == m_branchs.count - m_iLoadRange / 2 {
-                m_iLoadFrom += m_iLoadRange
-                m_iLoadEnd += m_iLoadRange
-                callWebService(from: m_iLoadFrom, to: m_iLoadRange)
+//        print("\(indexPath.row) + \(m_branchs[indexPath.row].name)")
+        if m_iLoadEnd < m_iBranchTotal! - 1 {
+            if m_bSendRequest == false {
+                if indexPath.item + 1 == m_branchs.count - m_iLoadRange / 2 {
+                    m_iLoadFrom += m_iLoadRange
+                    m_iLoadEnd += m_iLoadRange
+                    if m_iLoadEnd > m_iBranchTotal! - 1{
+                        let range = m_iBranchTotal! - m_iLoadFrom
+                        callWebService(from: m_iLoadFrom, to: range)
+                    } else {
+                        callWebService(from: m_iLoadFrom, to: m_iLoadRange)
+                    }
+                }
             }
         }
         return cell
@@ -217,7 +240,7 @@ extension HCBonusListViewController: CLLocationManagerDelegate {
         m_strLatitude = String(location.coordinate.latitude)
         m_strLongitude = String(location.coordinate.longitude)
         if m_bSendRequest == false {
-           callWebService(from: m_iLoadFrom, to: m_iLoadEnd)
+           callWebService(from: m_iLoadFrom, to: m_iLoadRange)
         }
         
     }
