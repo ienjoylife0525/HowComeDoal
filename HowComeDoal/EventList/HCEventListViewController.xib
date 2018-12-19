@@ -25,15 +25,25 @@
                     <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banner" translatesAutoresizingMaskIntoConstraints="NO" id="m5R-J0-hIW">
+                    <rect key="frame" x="40" y="23" width="295" height="94"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="m5R-J0-hIW" secondAttribute="trailing" constant="40" id="5JF-LG-1uI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9oD-6q-9JZ" secondAttribute="trailing" id="7fh-H1-a2S"/>
                 <constraint firstItem="9oD-6q-9JZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="cFY-4S-wNc"/>
+                <constraint firstItem="m5R-J0-hIW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="3" id="hZh-va-cqc"/>
+                <constraint firstItem="m5R-J0-hIW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="iiY-Wj-5XH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9oD-6q-9JZ" secondAttribute="bottom" id="ngB-z5-W2U"/>
+                <constraint firstItem="9oD-6q-9JZ" firstAttribute="top" secondItem="m5R-J0-hIW" secondAttribute="bottom" constant="3" id="nh6-P9-6qZ"/>
                 <constraint firstItem="9oD-6q-9JZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tMe-tN-PIa"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="Banner" width="600" height="303.75"/>
+    </resources>
 </document>

@@ -23,6 +23,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banner" translatesAutoresizingMaskIntoConstraints="NO" id="opu-Im-kr4">
+                    <rect key="frame" x="40" y="23" width="295" height="94"/>
+                </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IS1-A8-DC9">
                     <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -46,8 +49,12 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="RiX-vn-hVL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1SK-IY-9IA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="opu-Im-kr4" secondAttribute="trailing" constant="40" id="4z9-zS-Qre"/>
                 <constraint firstItem="RiX-vn-hVL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6c3-qd-QI5"/>
+                <constraint firstItem="IS1-A8-DC9" firstAttribute="top" secondItem="opu-Im-kr4" secondAttribute="bottom" constant="3" id="9n4-bu-MNE"/>
+                <constraint firstItem="opu-Im-kr4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="Dyz-wW-dir"/>
                 <constraint firstItem="IS1-A8-DC9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FZs-p8-CEQ"/>
+                <constraint firstItem="opu-Im-kr4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="3" id="JSS-zZ-RBK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IS1-A8-DC9" secondAttribute="trailing" id="Jtw-jN-gV9"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="RiX-vn-hVL" secondAttribute="bottom" id="LlH-Tc-8a5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RiX-vn-hVL" secondAttribute="trailing" id="QxF-eR-4J6"/>
@@ -57,4 +64,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="Banner" width="600" height="303.75"/>
+    </resources>
 </document>
