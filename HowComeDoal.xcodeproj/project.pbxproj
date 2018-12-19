@@ -215,6 +215,7 @@
 			children = (
 				6E7BDC9C21BFC9CA0003A907 /* HCAPIModel.swift */,
 				6E3948AF21C8E63F00F3FADD /* HCHomeButton.swift */,
+				6E7BDC9921BFB0C40003A907 /* HCHttpClient.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -249,7 +250,6 @@
 				6EDB81D421BF72490057BDDF /* LaunchScreen.storyboard */,
 				6EDB81D721BF72490057BDDF /* Info.plist */,
 				6EDB81E321BF76780057BDDF /* HCDefine.swift */,
-				6E7BDC9921BFB0C40003A907 /* HCHttpClient.swift */,
 			);
 			path = HowComeDoal;
 			sourceTree = "<group>";
