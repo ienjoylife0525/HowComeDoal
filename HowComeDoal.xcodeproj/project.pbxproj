@@ -26,6 +26,7 @@
 		6E1D959F21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E1D959D21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.xib */; };
 		6E1D95A521C83434000BD28F /* HCUIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D95A421C83434000BD28F /* HCUIColorExtension.swift */; };
 		6E783A8421CB83E300B5272F /* HKBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E783A8321CB83E300B5272F /* HKBaseViewController.swift */; };
+		6E783A8621CB977900B5272F /* HKLoactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E783A8521CB977900B5272F /* HKLoactionManager.swift */; };
 		6E7BDC9121BF959D0003A907 /* HCBonusListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7BDC8F21BF959D0003A907 /* HCBonusListViewController.swift */; };
 		6E7BDC9221BF959D0003A907 /* HCBonusListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7BDC9021BF959D0003A907 /* HCBonusListViewController.xib */; };
 		6E7BDC9621BF9A5A0003A907 /* HCBonusListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7BDC9421BF9A5A0003A907 /* HCBonusListTableViewCell.swift */; };
@@ -62,6 +63,7 @@
 		6E1D959D21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCDBonusListFooterTableViewCell.xib; sourceTree = "<group>"; };
 		6E1D95A421C83434000BD28F /* HCUIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCUIColorExtension.swift; sourceTree = "<group>"; };
 		6E783A8321CB83E300B5272F /* HKBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKBaseViewController.swift; sourceTree = "<group>"; };
+		6E783A8521CB977900B5272F /* HKLoactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKLoactionManager.swift; sourceTree = "<group>"; };
 		6E7BDC8F21BF959D0003A907 /* HCBonusListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBonusListViewController.swift; sourceTree = "<group>"; };
 		6E7BDC9021BF959D0003A907 /* HCBonusListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCBonusListViewController.xib; sourceTree = "<group>"; };
 		6E7BDC9421BF9A5A0003A907 /* HCBonusListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBonusListTableViewCell.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				6E7BDC9C21BFC9CA0003A907 /* HCAPIModel.swift */,
 				6E7BDC9921BFB0C40003A907 /* HCHttpClient.swift */,
+				6E783A8521CB977900B5272F /* HKLoactionManager.swift */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				6EDB81CE21BF72430057BDDF /* ViewController.swift in Sources */,
 				6E1D959921C789AF000BD28F /* HCDWebViewController.swift in Sources */,
 				6E7BDC9D21BFC9CA0003A907 /* HCAPIModel.swift in Sources */,
+				6E783A8621CB977900B5272F /* HKLoactionManager.swift in Sources */,
 				6E1D959E21C79F8E000BD28F /* HCDBonusListFooterTableViewCell.swift in Sources */,
 				6E7BDC9121BF959D0003A907 /* HCBonusListViewController.swift in Sources */,
 				6E1D959321C77F96000BD28F /* HCDCuponViewController.swift in Sources */,

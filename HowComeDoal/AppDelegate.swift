@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let mainPage = HCMainPageViewController.init(nibName: "HCMainPageViewController", bundle: nil)
         let nav = UINavigationController(rootViewController: mainPage)
+        HKLocationManager.shared().startUpdatingLocation()
         window?.rootViewController = nav
         window!.makeKeyAndVisible()
         return true

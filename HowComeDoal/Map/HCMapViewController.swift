@@ -21,13 +21,9 @@ class HCMapViewController: HKBaseViewController {
     var m_branch: Branch?
     var m_imgIcon: UIImage?
     
-    let m_locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        m_locationManager.delegate = self
-        
         m_mapView?.delegate = self
         m_mapView?.showsUserLocation = true
         m_mapView?.userTrackingMode = .follow
@@ -74,6 +70,3 @@ extension HCMapViewController: MKMapViewDelegate {
     }
 }
 
-extension HCMapViewController: CLLocationManagerDelegate {
-    
-}

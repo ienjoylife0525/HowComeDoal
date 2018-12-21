@@ -22,7 +22,6 @@ class HCBonusListViewController: HKBaseViewController {
     var m_aryParameter = [(String, String)]()
     var m_data: Data?
     var m_bonusList: ResponseList?
-    var m_locationManager: CLLocationManager!
     var m_strLongitude: String?
     var m_strLatitude: String?
     var m_branchs = [Branch]()
@@ -43,7 +42,6 @@ class HCBonusListViewController: HKBaseViewController {
         super.viewDidLoad()
         
         m_avLoading?.startAnimating()
-        setLocation()
         
         // for TableView
         let nib = UINib(nibName: "HCBonusListTableViewCell", bundle: nil)
@@ -52,7 +50,11 @@ class HCBonusListViewController: HKBaseViewController {
         m_tvBonusList?.register(loadNib, forCellReuseIdentifier: "LoadingCell")
         m_tvBonusList?.dataSource = self
         m_tvBonusList?.delegate = self
-    
+        
+        m_strLatitude = String(HKLocationManager.shared().currentLocation().latitude)
+        m_strLongitude = String(HKLocationManager.shared().currentLocation().longitude)
+        callWebService(from: m_iLoadFrom, to: m_iLoadRange)
+        
     }
     
     
@@ -66,14 +68,6 @@ class HCBonusListViewController: HKBaseViewController {
         } catch {
             print("error")
         }
-    }
-    
-    private func setLocation() {
-        m_locationManager = CLLocationManager()
-        m_locationManager.delegate = self
-        m_locationManager.requestWhenInUseAuthorization()
-        m_locationManager.activityType = .automotiveNavigation
-        m_locationManager.startUpdatingLocation()
     }
     
     private func callWebService(from: Int, to: Int) {
@@ -210,26 +204,4 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
         self.navigationController?.pushViewController(eventPage, animated: true)
     }
     
-}
-
-
-
-extension HCBonusListViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        m_locationManager.stopUpdatingLocation()
-
-        guard let location = locations.last else {
-            return
-        }
-        m_strLatitude = String(location.coordinate.latitude)
-        m_strLongitude = String(location.coordinate.longitude)
-        if m_bSendRequest == false {
-           callWebService(from: m_iLoadFrom, to: m_iLoadRange)
-        }
-        
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
 }
