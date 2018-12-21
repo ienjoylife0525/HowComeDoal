@@ -7,4 +7,5 @@ target 'HowComeDoal' do
 
   # Pods for HowComeDoal
   pod 'Alamofire', '~>4.4'
+  pod 'SwiftyJSON'
 end
