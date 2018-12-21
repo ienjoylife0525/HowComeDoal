@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18D22DB3322DA6CC16B16EEE /* Pods_HowComeDoal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D10A579623571850D2F5300 /* Pods_HowComeDoal.framework */; };
 		6E1D956521C1FCC2000BD28F /* HCEventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D956321C1FCC2000BD28F /* HCEventListViewController.swift */; };
 		6E1D956621C1FCC2000BD28F /* HCEventListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E1D956421C1FCC2000BD28F /* HCEventListViewController.xib */; };
 		6E1D956B21C1FEA5000BD28F /* HCEventListHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D956921C1FEA5000BD28F /* HCEventListHeaderTableViewCell.swift */; };
@@ -44,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43A04119A48A89C31B778A20 /* Pods-HowComeDoal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowComeDoal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HowComeDoal/Pods-HowComeDoal.debug.xcconfig"; sourceTree = "<group>"; };
+		4D10A579623571850D2F5300 /* Pods_HowComeDoal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HowComeDoal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E1D956321C1FCC2000BD28F /* HCEventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCEventListViewController.swift; sourceTree = "<group>"; };
 		6E1D956421C1FCC2000BD28F /* HCEventListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCEventListViewController.xib; sourceTree = "<group>"; };
 		6E1D956921C1FEA5000BD28F /* HCEventListHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCEventListHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		6EDB81E321BF76780057BDDF /* HCDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCDefine.swift; sourceTree = "<group>"; };
 		6EDB81E721BF78470057BDDF /* HCMainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMainPageViewController.swift; sourceTree = "<group>"; };
 		6EDB81E821BF78470057BDDF /* HCMainPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCMainPageViewController.xib; sourceTree = "<group>"; };
+		8AABA71108285C2C68EB70E1 /* Pods-HowComeDoal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowComeDoal.release.xcconfig"; path = "Pods/Target Support Files/Pods-HowComeDoal/Pods-HowComeDoal.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E1D958521C366CB000BD28F /* MapKit.framework in Frameworks */,
+				18D22DB3322DA6CC16B16EEE /* Pods_HowComeDoal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				6E1D958421C366CB000BD28F /* MapKit.framework */,
+				4D10A579623571850D2F5300 /* Pods_HowComeDoal.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 				6EDB81CA21BF72430057BDDF /* HowComeDoal */,
 				6EDB81C921BF72430057BDDF /* Products */,
 				6E1D958321C366CB000BD28F /* Frameworks */,
+				B7CB195618F0BC8697FC8B90 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -288,6 +295,15 @@
 			path = MainPage;
 			sourceTree = "<group>";
 		};
+		B7CB195618F0BC8697FC8B90 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43A04119A48A89C31B778A20 /* Pods-HowComeDoal.debug.xcconfig */,
+				8AABA71108285C2C68EB70E1 /* Pods-HowComeDoal.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -295,9 +311,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6EDB81DA21BF72490057BDDF /* Build configuration list for PBXNativeTarget "HowComeDoal" */;
 			buildPhases = (
+				474681A6A4EC9DE84E546A13 /* [CP] Check Pods Manifest.lock */,
 				6EDB81C421BF72430057BDDF /* Sources */,
 				6EDB81C521BF72430057BDDF /* Frameworks */,
 				6EDB81C621BF72430057BDDF /* Resources */,
+				CDC4C7C3EE029A70B37C2FFA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -369,6 +387,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		474681A6A4EC9DE84E546A13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HowComeDoal-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDC4C7C3EE029A70B37C2FFA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HowComeDoal/Pods-HowComeDoal-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HowComeDoal/Pods-HowComeDoal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6EDB81C421BF72430057BDDF /* Sources */ = {
@@ -537,6 +594,7 @@
 		};
 		6EDB81DB21BF72490057BDDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43A04119A48A89C31B778A20 /* Pods-HowComeDoal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -555,6 +613,7 @@
 		};
 		6EDB81DC21BF72490057BDDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AABA71108285C2C68EB70E1 /* Pods-HowComeDoal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,6 @@
+framework module Pods_HowComeDoal {
+  umbrella header "Pods-HowComeDoal-umbrella.h"
+
+  export *
+  module * { export * }
+}
