@@ -50,48 +50,40 @@ class HCBonusListViewController: HKBaseViewController {
         m_tvBonusList?.register(loadNib, forCellReuseIdentifier: "LoadingCell")
         m_tvBonusList?.dataSource = self
         m_tvBonusList?.delegate = self
-        
-        m_strLatitude = String(HKLocationManager.shared().currentLocation().latitude)
-        m_strLongitude = String(HKLocationManager.shared().currentLocation().longitude)
-        callWebService(from: m_iLoadFrom, to: m_iLoadRange)
-        
+    
+        HKLocationManager.shared.getLocation { (location) in
+            self.m_strLatitude = String(location.latitude)
+            self.m_strLongitude = String(location.longitude)
+            self.getResponse()
+        }
     }
     
     
-    private func decode() {
+    private func decode(data: Data) {
         let decoder = JSONDecoder()
         do {
-            let response = try decoder.decode(ResponseList.self, from: self.m_data!)
+            let response = try decoder.decode(ResponseList.self, from: data)
             m_bonusList = response
             m_iBranchTotal = m_bonusList?.totalBranches
-            
+
         } catch {
             print("error")
         }
     }
     
-    private func callWebService(from: Int, to: Int) {
-        //Set Parameter
-        m_aryParameter.append(("appId", k_iAppId))
+    private func getResponse() {
+        let type: String
         switch m_ibonusType {
         case .card:
-            m_aryParameter.append(("dataGroupCode", k_iDataGroupCard))
+            type = k_iDataGroupCard
         case .location:
-            m_aryParameter.append(("dataGroupCode", k_iDataGroupLocation))
+            type = k_iDataGroupLocation
         }
-        m_aryParameter.append(("index", String(from)))
-        m_aryParameter.append(("limit", String(to)))
-        m_aryParameter.append(("OS", "IOS"))
-        m_aryParameter.append(("lat", m_strLatitude!))
-        m_aryParameter.append(("lon", m_strLongitude!))
-        
         m_bSendRequest = true
-        print("Send request \(from) ~ \(m_iLoadEnd) range: \(to)")
-        //Send Request
-        HttpClient().requestWithURL(urlString: k_strURL, parameters: m_aryParameter) { (data) in
-            self.m_data = data
+        HttpClient().getBonusList(bonusType: type, lat: m_strLatitude!, lon: m_strLongitude!, index: m_iLoadFrom, range: m_iLoadRange, completion: { (data) in
+            self.decode(data: data)
             print("Data back!! \(data)")
-            self.decode()
+            
             if self.m_iLoadEnd > self.m_branchs.count {
                 self.m_branchs += (self.m_bonusList?.branch)!
                 print("Branchs count: \(self.m_branchs.count)")
@@ -101,14 +93,15 @@ class HCBonusListViewController: HKBaseViewController {
                 self.m_bLoadedAllData = true
             }
             //Update UI
-            DispatchQueue.main.sync {
-                
-                self.m_tvBonusList?.reloadData()
-                self.m_vLoadingView?.isHidden = true
-                self.m_avLoading?.stopAnimating()
-                self.m_avLoading?.isHidden = true
-            }
+            self.m_tvBonusList?.reloadData()
+            self.m_vLoadingView?.isHidden = true
+            self.m_avLoading?.stopAnimating()
+            self.m_avLoading?.isHidden = true
+            
             self.m_bSendRequest = false
+            
+        }) { (error) in
+            print(error)
         }
     }
 }
@@ -174,9 +167,10 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
                     m_iLoadEnd += m_iLoadRange
                     if m_iLoadEnd > m_iBranchTotal! - 1{
                         let range = m_iBranchTotal! - m_iLoadFrom
-                        callWebService(from: m_iLoadFrom, to: range)
+                        m_iLoadRange = range
+                        getResponse()
                     } else {
-                        callWebService(from: m_iLoadFrom, to: m_iLoadRange)
+                        getResponse()
                     }
                 }
             }
