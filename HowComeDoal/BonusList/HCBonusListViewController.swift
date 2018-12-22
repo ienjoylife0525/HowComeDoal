@@ -20,7 +20,6 @@ class HCBonusListViewController: HKBaseViewController {
 
     var m_ibonusType: BonusType = .card
     var m_aryParameter = [(String, String)]()
-    var m_data: Data?
     var m_bonusList: ResponseList?
     var m_strLongitude: String?
     var m_strLatitude: String?
@@ -33,11 +32,12 @@ class HCBonusListViewController: HKBaseViewController {
     var m_bLoadedAllData: Bool = false
     
     let m_picQueue = DispatchQueue(label: "com.HCD.loadpicqueue", attributes: .concurrent)
+    let m_adQueue = DispatchQueue(label: "com.HCD.loadadqueue", attributes: .concurrent)
     
     @IBOutlet weak var m_tvBonusList: UITableView?
     @IBOutlet weak var m_vLoadingView: UIView?
     @IBOutlet weak var m_avLoading: UIActivityIndicatorView?
-    
+    @IBOutlet weak var m_cvAdvertise: UICollectionView?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +50,16 @@ class HCBonusListViewController: HKBaseViewController {
         m_tvBonusList?.register(loadNib, forCellReuseIdentifier: "LoadingCell")
         m_tvBonusList?.dataSource = self
         m_tvBonusList?.delegate = self
+        
+        // set CollectionView
+        let adNib = UINib(nibName: "HCAdCollectionViewCell", bundle: nil)
+        m_cvAdvertise?.register(adNib, forCellWithReuseIdentifier: "AdCell")
+        m_cvAdvertise?.delegate = self
+        m_cvAdvertise?.dataSource = self
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: (m_cvAdvertise?.frame.width)!, height: (m_cvAdvertise?.frame.height)!)
+        layout.scrollDirection = .horizontal
+        m_cvAdvertise?.setCollectionViewLayout(layout, animated: true)
     
         HKLocationManager.shared.getLocation { (location) in
             self.m_strLatitude = String(location.latitude)
@@ -123,7 +133,6 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexPath.item)
         //Loading Footer Cell
         if m_bLoadedAllData == false {
             if indexPath.item == m_branchs.count {
@@ -193,9 +202,27 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
             eventPage.m_imgIcon = UIImage(named: "defaultIcon")
         }
         eventPage.m_Branch = m_branchs[indexPath.item]
-        print(indexPath.row)
-        print(indexPath.item)
         self.navigationController?.pushViewController(eventPage, animated: true)
     }
+    
+}
+
+extension HCBonusListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return k_aryAd.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdCell", for: indexPath) as! HCAdCollectionViewCell
+        m_adQueue.async {
+            let url = URL(string: k_aryAd[indexPath.item])
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                cell.m_ivAd?.image = UIImage(data: data!)
+            }
+        }
+        return cell
+    }
+    
     
 }
