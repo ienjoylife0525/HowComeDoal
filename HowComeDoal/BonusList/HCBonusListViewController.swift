@@ -30,6 +30,7 @@ class HCBonusListViewController: HKBaseViewController {
     var m_bSendRequest: Bool = false
     var m_iBranchTotal: Int?
     var m_bLoadedAllData: Bool = false
+    let m_iTotalIndex: Int = k_aryAd.count * 5
     
     let m_picQueue = DispatchQueue(label: "com.HCD.loadpicqueue", attributes: .concurrent)
     let m_adQueue = DispatchQueue(label: "com.HCD.loadadqueue", attributes: .concurrent)
@@ -59,13 +60,21 @@ class HCBonusListViewController: HKBaseViewController {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: (m_cvAdvertise?.frame.width)!, height: (m_cvAdvertise?.frame.height)!)
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
         m_cvAdvertise?.setCollectionViewLayout(layout, animated: true)
+        m_cvAdvertise?.isPagingEnabled = true
+    
     
         HKLocationManager.shared.getLocation { (location) in
             self.m_strLatitude = String(location.latitude)
             self.m_strLongitude = String(location.longitude)
             self.getResponse()
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let defaultIndex: IndexPath = IndexPath(row: m_iTotalIndex / 2, section: 0)
+        m_cvAdvertise?.scrollToItem(at: defaultIndex, at: .centeredHorizontally, animated: false)
     }
     
     
@@ -209,13 +218,15 @@ extension HCBonusListViewController: UITableViewDelegate, UITableViewDataSource 
 
 extension HCBonusListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return k_aryAd.count
+        return m_iTotalIndex
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdCell", for: indexPath) as! HCAdCollectionViewCell
+        let adIndex = indexPath.item % k_aryAd.count
+        cell.m_ivAd?.image = UIImage(named: "defaultIcon")
         m_adQueue.async {
-            let url = URL(string: k_aryAd[indexPath.item])
+            let url = URL(string: k_aryAd[adIndex])
             let data = try? Data(contentsOf: url!)
             DispatchQueue.main.async {
                 cell.m_ivAd?.image = UIImage(data: data!)
@@ -223,6 +234,19 @@ extension HCBonusListViewController: UICollectionViewDelegate, UICollectionViewD
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+        if indexPath.item == m_iTotalIndex - 1{
+            let midIndex = IndexPath(row: k_aryAd.count * 3 - 2, section: 0)
+            m_cvAdvertise?.scrollToItem(at: midIndex, at: .centeredHorizontally, animated: false)
+        } else if indexPath.item == 0 {
+            let midIndex = IndexPath(row: k_aryAd.count * 2 + 1, section: 0)
+            m_cvAdvertise?.scrollToItem(at: midIndex, at: .centeredHorizontally, animated: false)
+        }
+    }
+    
+    
     
     
 }
