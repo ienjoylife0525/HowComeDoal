@@ -30,10 +30,12 @@ class HCBonusListViewController: HKBaseViewController {
     var m_bSendRequest: Bool = false
     var m_iBranchTotal: Int?
     var m_bLoadedAllData: Bool = false
+    var m_iAdIndex: Int = 0
     let m_iTotalIndex: Int = k_aryAd.count * 5
     
     let m_picQueue = DispatchQueue(label: "com.HCD.loadpicqueue", attributes: .concurrent)
     let m_adQueue = DispatchQueue(label: "com.HCD.loadadqueue", attributes: .concurrent)
+    let m_timeQueue = DispatchQueue(label: "com.HCD.timerqueue")
     
     @IBOutlet weak var m_tvBonusList: UITableView?
     @IBOutlet weak var m_vLoadingView: UIView?
@@ -70,11 +72,25 @@ class HCBonusListViewController: HKBaseViewController {
             self.m_strLongitude = String(location.longitude)
             self.getResponse()
         }
+        
+        // Timer
+        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(changeBanner), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         let defaultIndex: IndexPath = IndexPath(row: m_iTotalIndex / 2, section: 0)
         m_cvAdvertise?.scrollToItem(at: defaultIndex, at: .centeredHorizontally, animated: false)
+    }
+    
+    @objc func changeBanner() {
+        m_iAdIndex += 1
+        let indexPath: IndexPath
+        if m_iAdIndex == m_iTotalIndex - 1{
+            indexPath = IndexPath(item: k_aryAd.count * 3 - 1, section: 0)
+        } else {
+            indexPath = IndexPath(item: m_iAdIndex, section: 0)
+        }
+        m_cvAdvertise?.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
     }
     
     
@@ -228,7 +244,7 @@ extension HCBonusListViewController: UICollectionViewDelegate, UICollectionViewD
         m_adQueue.async {
             let url = URL(string: k_aryAd[adIndex])
             let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
+            DispatchQueue.main.sync {
                 cell.m_ivAd?.image = UIImage(data: data!)
             }
         }
@@ -237,6 +253,7 @@ extension HCBonusListViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         print(indexPath.item)
+        m_iAdIndex = indexPath.item
         if indexPath.item == m_iTotalIndex - 1{
             let midIndex = IndexPath(row: k_aryAd.count * 3 - 2, section: 0)
             m_cvAdvertise?.scrollToItem(at: midIndex, at: .centeredHorizontally, animated: false)
