@@ -21,14 +21,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69d-UT-xKS">
-                    <rect key="frame" x="50" y="220" width="97.5" height="97"/>
+                    <rect key="frame" x="50" y="220" width="97.5" height="180"/>
                     <state key="normal" image="locationBtn"/>
                     <connections>
                         <action selector="nearBonus:" destination="-1" eventType="touchUpInside" id="PKb-9p-VhZ"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGw-fA-A5e">
-                    <rect key="frame" x="227.5" y="220" width="97.5" height="97"/>
+                    <rect key="frame" x="227.5" y="220" width="97.5" height="180"/>
                     <state key="normal" image="cardBtn"/>
                     <connections>
                         <action selector="cardBonus:" destination="-1" eventType="touchUpInside" id="O9y-ww-868"/>
@@ -62,7 +62,7 @@
                 <constraint firstItem="U6C-eJ-OBs" firstAttribute="centerX" secondItem="69d-UT-xKS" secondAttribute="centerX" id="hAF-lD-1hC"/>
                 <constraint firstItem="69d-UT-xKS" firstAttribute="top" secondItem="LGw-fA-A5e" secondAttribute="top" id="kbS-D4-dkx"/>
                 <constraint firstItem="U6C-eJ-OBs" firstAttribute="width" secondItem="69d-UT-xKS" secondAttribute="width" id="xTS-3e-x8P"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="69d-UT-xKS" secondAttribute="bottom" constant="350" id="xZM-iR-UNp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="69d-UT-xKS" secondAttribute="bottom" constant="350" id="xZM-iR-UNp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>

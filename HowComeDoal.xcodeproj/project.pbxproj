@@ -202,6 +202,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		6E3D338921D0D7EF00CC1409 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		6E783A8221CB838C00B5272F /* Object */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +310,7 @@
 		6EDB81DE21BF73E20057BDDF /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
+				6E3D338921D0D7EF00CC1409 /* Component */,
 				6EDB81E721BF78470057BDDF /* HCMainPageViewController.swift */,
 				6EDB81E821BF78470057BDDF /* HCMainPageViewController.xib */,
 			);

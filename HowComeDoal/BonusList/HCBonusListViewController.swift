@@ -82,6 +82,7 @@ class HCBonusListViewController: HKBaseViewController {
         m_cvAdvertise?.scrollToItem(at: defaultIndex, at: .centeredHorizontally, animated: false)
     }
     
+    
     @objc func changeBanner() {
         m_iAdIndex += 1
         let indexPath: IndexPath
@@ -266,4 +267,10 @@ extension HCBonusListViewController: UICollectionViewDelegate, UICollectionViewD
     
     
     
+}
+
+extension HCBonusListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.bounds.size
+    }
 }
